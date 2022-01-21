@@ -1,0 +1,11 @@
+{% extends 'main/header.html' %}
+
+{% block content %}
+    <br>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button style="background-color:black; color:white" class="btn btn-outline-info" type="submit">Update Profile</button>
+    </form>
+
+{% endblock %}

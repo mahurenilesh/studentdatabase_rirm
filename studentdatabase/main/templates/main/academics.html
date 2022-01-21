@@ -1,0 +1,58 @@
+{% extends "main/header.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-9">
+        <h5><strong>{{object.StudentName}}</strong></h5>
+        <div class="card card-body">
+            <table class="table table-sm">
+                <tr>
+                    <th>Roll Number</th>
+                    <td>{{object.StudentRollNumber}} </td>
+                </tr>
+                <tr>    
+                    <th>Name</th>
+                    <td>{{object.StudentName}} </td>
+                </tr>
+                <tr>    
+                    <th>Class</th>                    
+                    <td>{{object.StudentClass}} </td>
+                </tr>
+                <tr>    
+                    <th>School</th>
+                    <td>{{object.StudentSchool}} </td>
+                </tr>
+                <tr>    
+                    <th>Mobile Number</th>
+                    <td>{{object.StudentMobile}} </td>
+                </tr>
+                <tr>    
+                    <th>Address</th>
+                    <td>{{object.StudentAddress}} </td>
+                </tr>
+                <tr>
+                    <th>Math Marks</th>
+                    <td>{{object.MathMarks}} </td>
+                </tr>
+                <tr>
+                    <th>Physics Marks</th>
+                    <td>{{object.PhysicsMarks}} </td>
+                </tr>
+                <tr>
+                    <th>Chemistry Marks</th>      
+                    <td>{{object.ChemistryMarks}} </td>
+                </tr>
+                <tr>
+                    <th>Biology Marks</th>      
+                    <td>{{object.BioMarks}} </td>
+                </tr>
+                <tr>
+                    <th>English Marks</th>      
+                    <td>{{object.EnglishMarks}} </td>
+                </tr>
+            </table>
+            <p> <b>Note:</b> Marks are out of 100</p>
+        </div>
+    </div>
+</div>                    
+{% endblock %}

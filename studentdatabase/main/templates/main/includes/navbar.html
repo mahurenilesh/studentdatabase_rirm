@@ -1,0 +1,32 @@
+
+<nav>
+    <div class="nav-wrapper">
+      <a href="{% url 'main:homepage' %}" class="brand-logo center"><strong>STUDENT INFORMATION</strong></a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="{% url 'main:homepage' %}">Home</a></li>
+        {% if user.is_authenticated %}
+          <li><a href="/addstudent">Add Student</a></li>  
+          <li><a href="/edit_profile">{{user.username}}</a></li>          
+          <li><a href="/websearch">Links/URLs</a></li>
+          <li><a href="/logout">Logout</a></li>
+        {% else %}
+          <li><a href="/register">Register</a></li>
+          <li><a href="/websearch">Links/URLs</a></li>
+          <li><a href="/login">Login</a></li>
+          
+        {% endif %}
+        
+      </ul>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <form class="d-flex" method="POST" action="{% url 'main:searchstudent' %}">
+          {% csrf_token %}
+          <li><input class="form-control me-2" type="search" placeholder="Search Student" aria-label="Search" name="searched"></li>
+          <li><button class="btn btn-outline-secondary my-2 my-sm-0" style="background-color:rgb(252, 133, 133)" type="submit">Search</button></li>
+        </form>
+      </ul>
+    </div>
+</nav>
+
+
+
+        

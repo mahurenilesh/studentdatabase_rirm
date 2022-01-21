@@ -1,0 +1,17 @@
+{% extends "main/header.html" %}
+
+{% block content %}
+    
+    <div class="center">
+    <p>Are you sure you want to delete "{{studentinfos}}"?</p>
+    
+    <form method="POST" action="">
+    
+        {% csrf_token %}    
+        <button class="btn" style="background-color:rgb(150, 0, 0)" type="submit" name="Confirm">Submit</button>
+        <a class="btn" style="background-color:rgb(0, 110, 0)" href="{% url 'main:homepage' %}">Cancel</a>
+    </form>
+</div>
+
+
+{% endblock %}

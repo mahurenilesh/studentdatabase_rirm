@@ -1,0 +1,41 @@
+{% extends "main/header.html" %}
+
+{% block content %}
+    <div class="center">
+        {% if searched %}
+            <h4>You searched for "{{searched}}"</h4><br/>
+            <div class="card card-body">
+                <table class="table table-sm">  
+                    <tr>
+                        <th>Roll Number</th>
+                        <th>Name</th>
+                        <th>Class</th>                    
+                        <th>School</th>
+                        <th>Mobile Number</th>
+                        <th>Address</th>
+                    </tr>
+                    {% for a in studentnames %}
+                        <tr>
+                            <td>{{a.StudentRollNumber}} </td>
+                            {% if user.is_authenticated %}
+                            <td><a href="{% url 'main:academics' a.id %}">{{a.StudentName}}</a></td>
+                            {% else %}
+                            <td>{{a.StudentName}}</td>
+                            {% endif %}
+                            <td>{{a.StudentClass}} </td>
+                            <td>{{a.StudentSchool}} </td>
+                            <td>{{a.StudentMobile}} </td>
+                            <td>{{a.StudentAddress}} </td>
+                            {% if user.is_authenticated %}
+                                <td><a class="btn" style="background-color:rgb(0, 110, 0)" href="{% url 'main:updatestudent' a.id %}">Update</a></td>
+                                <td><a class="btn" style="background-color:rgb(150, 0, 0)" href="{% url 'main:deletestudent' a.id %}">Delete</a></td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {% else %}
+            <h4>You forgot to search for a student!</h4>
+        {% endif %}
+    </div>
+{% endblock %}

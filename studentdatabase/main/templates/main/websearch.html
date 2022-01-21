@@ -1,0 +1,20 @@
+{% extends "main/header.html" %}
+
+{% block content %}
+
+<center><h3>Links/URLs</h3></center>
+<br/><br/><br/><br/><br/><br/>
+<div class="search">
+    <form method="POST" action="search">
+            {% csrf_token %}
+            {{form.as_p}}
+        <input class="search-bar" type="text" name="search" autofocus x-webkit-speech/>
+        <div class="search-nav">
+            <div class="search-button center"><a href="#">
+                <button type="submit" style="height:50px;width:100px"><strong>Get Links</strong></button></a>
+            </div>
+        </div>
+    </form>
+</div>
+  
+{% endblock %}
